@@ -26,7 +26,7 @@ public class Booking {
 	private double fareAmount;
 	@Column(name = "total_amount")
 	private double totalAmount;
-	@Column(name = "dateOfBooking")
+	@Column(name = "dateofbooking")
 	private LocalDate dateOfBooking;
 	@Column(name = "booking_status")
 	private String bookingStatus;
