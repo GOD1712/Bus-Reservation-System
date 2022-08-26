@@ -14,21 +14,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name = "booking_details")
 public class Booking {
 	@Id
-	@Column(name = "bookingId")
+	@Column(name = "booking_id")
 	private int bookingId;
 //	@Column(name = "scheduleId")
 //	private int scheduleId;
 //	@Column(name = "userId")
 //	private int userId;
-	@Column(name = "noOfSeats")
+	@Column(name = "seats")
 	private int noOfSeats;
-	@Column(name = "fareAmount")
+	@Column(name = "fare_amount")
 	private double fareAmount;
-	@Column(name = "totalAmount")
+	@Column(name = "total_amount")
 	private double totalAmount;
 	@Column(name = "dateOfBooking")
 	private LocalDate dateOfBooking;
-	@Column(name = "bookingStatus")
+	@Column(name = "booking_status")
 	private String bookingStatus;
 	
 	@Autowired
