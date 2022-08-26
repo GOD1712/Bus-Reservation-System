@@ -11,18 +11,18 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name = "payment_details")
+@Table(name = "Payment")
 public class Payment {
 	@Id
-	@Column(name = "paymentId")
+	@Column(name = "payment_id")
 	private int paymentId;
 //	@Column(name = "bookingId")
 //	private int bookingId;
-	@Column(name = "paymentDate")
+	@Column(name = "payment_date")
 	private LocalDate paymentDate;
-	@Column(name = "paymentMethod")
+	@Column(name = "payment_method")
 	private String paymentMethod;
-	@Column(name = "amountPaid")
+	@Column(name = "amount_paid")
 	private double amountPaid;
 	
 	@Autowired
