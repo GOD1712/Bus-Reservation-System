@@ -12,24 +12,24 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name = "schedule_details")
+@Table(name = "Schedule")
 public class Schedule {
 	@Id
-	@Column(name = "scheduleId")
+	@Column(name = "schedule_id")
 	private int scheduleId;
 //	@Column(name = "busId")
 //	private int busId;
-	@Column(name = "startingPoint")
+	@Column(name = "starting_point")
 	private String startingPoint;
 	@Column(name = "destination")
 	private String destination;
-	@Column(name = "fareAmount")
+	@Column(name = "fare_amount")
 	private double fareAmount;
-	@Column(name = "estimatedArrivalTime")
+	@Column(name = "arrival_time")
 	private LocalTime estimatedArrivalTime;
-	@Column(name = "departureTime")
+	@Column(name = "departure_time")
 	private LocalTime departureTime;
-	@Column(name = "scheduleDate")
+	@Column(name = "departure_date")
 	private LocalDate scheduleDate;
 	
 	@Autowired
