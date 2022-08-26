@@ -8,16 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_details")
+@Table(name = "BusUser")
 public class User {
 	@Id
-	@Column(name = "userId")
+	@Column(name = "user_id")
 	private int userId;
-	@Column(name = "userName")
+	@Column(name = "firstname")
 	private String userName;
-	@Column(name = "fullName")
+	@Column(name = "lastname")
 	private String fullName;
-	@Column(name = "password")
+	@Column(name = "User_password")
 	private String password;
 	@Column(name = "gender")
 	private String gender;
@@ -25,9 +25,9 @@ public class User {
 	private String address;
 	@Column(name = "email")
 	private String email;
-	@Column(name = "contactNo")
+	@Column(name = "contactno")
 	private String contactNo;
-	@Column(name = "dateOfBirth")
+	@Column(name = "dob")
 	private LocalDate dob;
 	
 	public User() {}
