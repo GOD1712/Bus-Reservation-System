@@ -9,13 +9,13 @@ import javax.persistence.Table;
 @Table(name="bus_details")
 public class Bus {
 	@Id
-	@Column(name = "busId")
+	@Column(name = "bus_id")
 	private int busId;
-	@Column(name = "busPlateNo")
+	@Column(name = "bus_plateno")
 	private String busPlateNo;
-	@Column(name = "capacity")
+	@Column(name = "bus_capacity")
 	private int capacity;
-	@Column(name = "busType")
+	@Column(name = "bus_type")
 	private String busType;
 	
 	public Bus() {}
