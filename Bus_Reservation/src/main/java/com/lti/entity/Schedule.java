@@ -1,7 +1,6 @@
 package com.lti.entity;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,11 +26,11 @@ public class Schedule {
 	@Column(name = "fare_amount")
 	private double fareAmount;
 	@Column(name = "arrival_time")
-	private LocalTime estimatedArrivalTime;
+	private String estimatedArrivalTime;
 	@Column(name = "departure_time")
-	private LocalTime departureTime;
+	private String departureTime;
 	@Column(name = "departure_date")
-	private LocalDate scheduleDate;
+	private String scheduleDate;
 	
 	@Autowired
 	@ManyToOne
@@ -41,7 +40,7 @@ public class Schedule {
 	public Schedule() {}
 	
 	public Schedule(String startingPoint, String destination, double fareAmount,
-			LocalTime estimatedArrivalTime, LocalTime departureTime, LocalDate scheduleDate, Bus bus) {
+			String estimatedArrivalTime, String departureTime, String scheduleDate, Bus bus) {
 		this.startingPoint = startingPoint;
 		this.destination = destination;
 		this.fareAmount = fareAmount;
@@ -52,7 +51,7 @@ public class Schedule {
 	}
 
 	public Schedule(int scheduleId, String startingPoint, String destination, double fareAmount,
-			LocalTime estimatedArrivalTime, LocalTime departureTime, LocalDate scheduleDate, Bus bus) {
+			String estimatedArrivalTime, String departureTime, String scheduleDate, Bus bus) {
 		this.scheduleId = scheduleId;
 		this.startingPoint = startingPoint;
 		this.destination = destination;
@@ -96,27 +95,27 @@ public class Schedule {
 		this.fareAmount = fareAmount;
 	}
 
-	public LocalTime getEstimatedArrivalTime() {
+	public String getEstimatedArrivalTime() {
 		return estimatedArrivalTime;
 	}
 
-	public void setEstimatedArrivalTime(LocalTime estimatedArrivalTime) {
+	public void setEstimatedArrivalTime(String estimatedArrivalTime) {
 		this.estimatedArrivalTime = estimatedArrivalTime;
 	}
 
-	public LocalTime getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalTime departureTime) {
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
 
-	public LocalDate getScheduleDate() {
+	public String getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(LocalDate scheduleDate) {
+	public void setScheduleDate(String scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 

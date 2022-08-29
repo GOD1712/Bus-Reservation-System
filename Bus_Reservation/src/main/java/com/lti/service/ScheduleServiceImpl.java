@@ -70,5 +70,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 			return scheduleBus.get();
 		
 	}
+	
+	@Override
+	public List<Schedule> findBystartingPointAndDestinationAndScheduleDate(String startingPoint, String endingPoint, String scheduleDate){
+		return this.scheduledao.findBystartingPointAndDestinationAndScheduleDate(startingPoint,endingPoint,scheduleDate);
+	}
 
 }

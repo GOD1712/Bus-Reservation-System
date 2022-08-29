@@ -1,6 +1,7 @@
 package com.lti.controller;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,7 @@ import com.lti.service.ScheduleService;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/scheduledBus")
 public class ScheduleController {
 	/*
@@ -88,6 +90,11 @@ public class ScheduleController {
 		} else {
 			return new ResponseEntity<Schedule>(searchSBus, HttpStatus.OK);
 		}
+	}
+	
+	@GetMapping("/schedules/{startingPoint}/{destination}/{scheduleDate}")
+	public List<Schedule> fetchSchedules(@PathVariable("startingPoint") String startingPoint, @PathVariable("destination") String destination, @PathVariable("scheduleDate") String scheduleDate){
+		return this.scheduleService.findBystartingPointAndDestinationAndScheduleDate(startingPoint, destination, scheduleDate);
 	}
 	
 }

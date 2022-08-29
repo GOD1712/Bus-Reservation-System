@@ -78,5 +78,15 @@ public class UserServiceImpl implements UserService{
 		
 		
 	}
+	
+	@Override
+	public User findByUserName(String userName) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		Optional<User> user= userdao.findByUserName(userName);
+		if(user.isEmpty()) {
+			throw new UserNotFoundException("User name: " + userName + "");
+		}
+		return user.get();
+	}
 
 }

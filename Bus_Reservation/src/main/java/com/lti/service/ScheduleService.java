@@ -18,5 +18,7 @@ public interface ScheduleService {
 	 String removeScheduledBus(int id) throws RecordNotFoundException;
 
 	 Schedule viewScheduledBus(int id) throws BusNotFoundException;
+	 
+	 List<Schedule> findBystartingPointAndDestinationAndScheduleDate(String startingPoint, String endingPoint, String scheduleDate);
 
 }

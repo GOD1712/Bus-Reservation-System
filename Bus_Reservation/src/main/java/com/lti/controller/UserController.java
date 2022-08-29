@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,13 +27,14 @@ import com.lti.service.UserService;
 
 @ComponentScan(basePackages = "com.lti")
 @RestController
-@RequestMapping("/BusApp")
+@RequestMapping("/busapp")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
 	
 	@Autowired
 	UserService userService;
 
-	@PostMapping("/Users")
+	@PostMapping("/users")
 	public User addUser(@RequestBody User newUser) {
 
 		return userService.createUser(newUser);
@@ -50,15 +52,21 @@ public class UserController {
 		return userService.updateUser(updateUser);
 	}
 
-	@GetMapping("/searchUser/{id}")
-	public Optional<User> searchUserByID(@PathVariable("id") Integer userId) throws UserNotFoundException {
-
-		return userService.findUserById(userId);
-	}
+//	@GetMapping("/searchUser/{id}")
+//	public Optional<User> searchUserByID(@PathVariable("id") Integer userId) throws UserNotFoundException {
+//
+//		return userService.findUserById(userId);
+//	}
 
 	@DeleteMapping("/deleteUser/{id}")
 	public String deleteBookingByID(@PathVariable("id") Integer userId) throws RecordNotFoundException {
 
 		return "Deleted";
+	}
+	
+	@GetMapping("/searchUser/{name}")
+	public User searchUserByID(@PathVariable("name") String userName) throws UserNotFoundException {
+
+		return userService.findByUserName(userName);
 	}
 }
