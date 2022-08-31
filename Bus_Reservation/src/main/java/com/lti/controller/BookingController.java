@@ -21,7 +21,7 @@ import com.lti.exception.BusNotFoundException;
 import com.lti.service.BookingService;
 
 
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @ComponentScan(basePackages = "com")
 @RestController
 @RequestMapping("/booking")
@@ -31,10 +31,9 @@ public class BookingController {
 	BookingService bookingService;
 	
 	@PostMapping("/createBooking")
-	@ExceptionHandler(BusNotFoundException.class)
-	public void addBooking(@RequestBody Booking newBooking) {
+	public Booking addBooking(@RequestBody Booking newBooking) {
 
-		bookingService.createBooking(newBooking);
+		return bookingService.createBooking(newBooking);
 	}
 	
 	@GetMapping("/readAllBooking")
@@ -44,21 +43,21 @@ public class BookingController {
 	}
 	
 	@PutMapping("/updateBooking")
-	@ExceptionHandler(BusNotFoundException.class)
+	//@ExceptionHandler(BusNotFoundException.class)
 	public void modifyBooking(@RequestBody Booking updateBooking) {
 
 		bookingService.updateBooking(updateBooking);
 	}
 	
 	@GetMapping("/searchBooking/{id}")
-	@ExceptionHandler(BusNotFoundException.class)
+	//@ExceptionHandler(BusNotFoundException.class)
 	public ResponseEntity<?> searchBookingByID(@PathVariable("id") int bookingId) {
 
 		return bookingService.findBookingById(bookingId);
 	}
 	
 	@DeleteMapping("/deleteBooking/{id}")
-	@ExceptionHandler(BusNotFoundException.class)
+	//@ExceptionHandler(BusNotFoundException.class)
 	public void deleteBookingByID(@PathVariable("id") int bookingId) {
 
 		bookingService.deleteBooking(bookingId);

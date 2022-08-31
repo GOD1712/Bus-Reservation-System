@@ -1,7 +1,6 @@
 package com.lti.entity;
 
-import java.time.LocalDate;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,23 +30,23 @@ public class Booking {
 	@Column(name = "total_amount")
 	private double totalAmount;
 	@Column(name = "dateofbooking")
-	private LocalDate dateOfBooking;
+	private String dateOfBooking;
 	@Column(name = "booking_status")
 	private String bookingStatus;
 	
 	@Autowired
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "userId")
 	private User user;
 	
 	@Autowired
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="schedule_id")
 	private Schedule schedule;
 	
 	public Booking() {}
 	
-	public Booking(int noOfSeats, double fareAmount, double totalAmount, LocalDate dateOfBooking,
+	public Booking(int noOfSeats, double fareAmount, double totalAmount, String dateOfBooking,
 			String bookingStatus, User user, Schedule schedule) {
 		this.noOfSeats = noOfSeats;
 		this.fareAmount = fareAmount;
@@ -58,7 +57,7 @@ public class Booking {
 		this.schedule = schedule;
 	}
 
-	public Booking(int bookingId, int noOfSeats, double fareAmount, double totalAmount, LocalDate dateOfBooking,
+	public Booking(int bookingId, int noOfSeats, double fareAmount, double totalAmount, String dateOfBooking,
 			String bookingStatus, User user, Schedule schedule) {
 		this.bookingId = bookingId;
 		this.noOfSeats = noOfSeats;
@@ -103,11 +102,11 @@ public class Booking {
 		this.totalAmount = totalAmount;
 	}
 
-	public LocalDate getDateOfBooking() {
+	public String getDateOfBooking() {
 		return dateOfBooking;
 	}
 
-	public void setDateOfBooking(LocalDate dateOfBooking) {
+	public void setDateOfBooking(String dateOfBooking) {
 		this.dateOfBooking = dateOfBooking;
 	}
 

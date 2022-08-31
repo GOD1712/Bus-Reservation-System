@@ -2,8 +2,11 @@ package com.lti.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name = "Payment")
 public class Payment {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "payment_id")
 	private int paymentId;
 //	@Column(name = "bookingId")
@@ -27,7 +31,7 @@ public class Payment {
 	private double amountPaid;
 	
 	@Autowired
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="booking_id")
 	private Booking booking;
 	

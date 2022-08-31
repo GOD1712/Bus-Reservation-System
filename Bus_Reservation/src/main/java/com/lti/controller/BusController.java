@@ -19,7 +19,7 @@ import com.lti.exception.BusNotFoundException;
 import com.lti.service.BusService;
 
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/bus")
 public class BusController {
@@ -29,8 +29,8 @@ public class BusController {
 	
 	@PostMapping("/addBus")
 	@ExceptionHandler(BusNotFoundException.class)
-	public void addBus(@RequestBody Bus bus) {
-		busService.addBus(bus);
+	public Bus addBus(@RequestBody Bus bus) {
+		return busService.addBus(bus);
 	}
 
 	@GetMapping("/allBus")

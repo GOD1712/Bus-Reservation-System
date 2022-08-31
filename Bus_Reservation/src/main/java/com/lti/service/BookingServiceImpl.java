@@ -26,15 +26,9 @@ public class BookingServiceImpl  implements BookingService{
 	}
 
 	@Override
-     public ResponseEntity<Booking> createBooking(Booking newBooking) {
-	
-			Optional<Booking> findBookingById = bookingdao.findById(newBooking.getBookingId());
-			
-				if (!findBookingById.isPresent()) {
-					bookingdao.save(newBooking);
-					
-				} 
-		return null;
+	@Transactional
+     public Booking createBooking(Booking newBooking) {
+		return bookingdao.save(newBooking);		
 	}
 	
 	@Override

@@ -2,8 +2,11 @@ package com.lti.entity;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name = "Schedule")
 public class Schedule {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "schedule_id")
 	private int scheduleId;
 //	@Column(name = "busId")
@@ -33,7 +37,7 @@ public class Schedule {
 	private String scheduleDate;
 	
 	@Autowired
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="bus_id")
 	private Bus bus;
 	

@@ -11,7 +11,7 @@ import com.lti.exception.BusNotFoundException;
 public interface BookingService {
 	
 	List<Booking> getAllBookingDetails();
-	public ResponseEntity<?> createBooking(Booking newBooking);
+	public Booking createBooking(Booking newBooking);
 
 	public Booking updateBooking(Booking changedBooking);
 
