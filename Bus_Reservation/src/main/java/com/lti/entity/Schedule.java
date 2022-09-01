@@ -99,6 +99,14 @@ public class Schedule {
 		this.fareAmount = fareAmount;
 	}
 
+//	public Bus getBus() {
+//		return bus;
+//	}
+//
+//	public void setBus(Bus bus) {
+//		this.bus = bus;
+//	}
+
 	public String getEstimatedArrivalTime() {
 		return estimatedArrivalTime;
 	}

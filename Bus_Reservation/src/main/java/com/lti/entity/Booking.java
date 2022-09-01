@@ -118,21 +118,21 @@ public class Booking {
 		this.bookingStatus = bookingStatus;
 	}
 
-	public User getUser() {
-		return user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Schedule getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
+//	public Schedule getSchedule() {
+//		return schedule;
+//	}
+//
+//	public void setSchedule(Schedule schedule) {
+//		this.schedule = schedule;
+//	}
 
 	@Override
 	public String toString() {

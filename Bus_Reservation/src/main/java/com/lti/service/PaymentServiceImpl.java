@@ -40,13 +40,7 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	@Transactional
 	public Payment addPayment(Payment newPayment) {
-Optional<Payment> findPaymentById = paymentdao.findById(newPayment.getPaymentId());
-		
-		if (!findPaymentById.isPresent()) {
-			 paymentdao.save(newPayment);		
-			 }
-		return newPayment;
-
+		return paymentdao.save(newPayment);		
 	}
 	
 

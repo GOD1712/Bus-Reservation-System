@@ -10,4 +10,5 @@ import com.lti.entity.Schedule;
 @Repository
 public interface ScheduleDao extends JpaRepository<Schedule, Integer> {
 	List<Schedule> findBystartingPointAndDestinationAndScheduleDate(String startingPoint, String endingPoint, String scheduleDate);
+	List<Schedule> findBystartingPointAndDestination(String startingPoint, String endingPoint);
 }

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.ScheduleDao;
 import com.lti.entity.Schedule;
@@ -27,6 +28,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
+	@Transactional
 	public Schedule addScheduledBus(Schedule scheduledBus) {
 		
 		return scheduledao.save(scheduledBus);
@@ -74,6 +76,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 	@Override
 	public List<Schedule> findBystartingPointAndDestinationAndScheduleDate(String startingPoint, String endingPoint, String scheduleDate){
 		return this.scheduledao.findBystartingPointAndDestinationAndScheduleDate(startingPoint,endingPoint,scheduleDate);
+	}
+	
+	@Override
+	public List<Schedule> findBystartingPointAndDestination(String startingPoint, String endingPoint){
+		return this.scheduledao.findBystartingPointAndDestination(startingPoint,endingPoint);
 	}
 
 }

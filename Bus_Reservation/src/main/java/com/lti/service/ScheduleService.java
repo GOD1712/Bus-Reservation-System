@@ -20,5 +20,6 @@ public interface ScheduleService {
 	 Schedule viewScheduledBus(int id) throws BusNotFoundException;
 	 
 	 List<Schedule> findBystartingPointAndDestinationAndScheduleDate(String startingPoint, String endingPoint, String scheduleDate);
-
+	 
+	 List<Schedule> findBystartingPointAndDestination(String startingPoint, String endingPoint);
 }

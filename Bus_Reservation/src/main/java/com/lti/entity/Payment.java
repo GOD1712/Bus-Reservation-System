@@ -88,13 +88,13 @@ public class Payment {
 		this.amountPaid = amountPaid;
 	}
 
-	public Booking getBooking() {
-		return booking;
-	}
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
+//	public Booking getBooking() {
+//		return booking;
+//	}
+//
+//	public void setBooking(Booking booking) {
+//		this.booking = booking;
+//	}
 
 	@Override
 	public String toString() {

@@ -94,9 +94,15 @@ public class ScheduleController {
 		}
 	}
 	
+	@GetMapping("/schedules/{startingPoint}/{destination}")
+	public List<Schedule> fetchSchedules(@PathVariable("startingPoint") String startingPoint, @PathVariable("destination") String destination){
+		return this.scheduleService.findBystartingPointAndDestination(startingPoint, destination);
+	}
+	
 	@GetMapping("/schedules/{startingPoint}/{destination}/{scheduleDate}")
-	public List<Schedule> fetchSchedules(@PathVariable("startingPoint") String startingPoint, @PathVariable("destination") String destination, @PathVariable("scheduleDate") String scheduleDate){
+	public List<Schedule> fetchSchedulesByDate(@PathVariable("startingPoint") String startingPoint, @PathVariable("destination") String destination, @PathVariable("scheduleDate") String scheduleDate){
 		return this.scheduleService.findBystartingPointAndDestinationAndScheduleDate(startingPoint, destination, scheduleDate);
 	}
+	
 	
 }
