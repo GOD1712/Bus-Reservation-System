@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Booking;
+import com.lti.exception.BookingNotFoundException;
 import com.lti.exception.BusNotFoundException;
 import com.lti.service.BookingService;
 
@@ -51,7 +52,7 @@ public class BookingController {
 	
 	@GetMapping("/searchBooking/{id}")
 	//@ExceptionHandler(BusNotFoundException.class)
-	public ResponseEntity<?> searchBookingByID(@PathVariable("id") int bookingId) {
+	public Booking searchBookingByID(@PathVariable("id") int bookingId) throws BookingNotFoundException {
 
 		return bookingService.findBookingById(bookingId);
 	}

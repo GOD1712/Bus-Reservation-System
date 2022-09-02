@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lti.dao.BookingDao;
 import com.lti.entity.Booking;
 import com.lti.entity.Bus;
+import com.lti.exception.BookingNotFoundException;
 import com.lti.exception.BusNotFoundException;
 
 @Service
@@ -55,9 +56,12 @@ public class BookingServiceImpl  implements BookingService{
 	}
 
 	@Override
-	public ResponseEntity<?> findBookingById(int bookingId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Booking findBookingById(int bookingId) throws BookingNotFoundException {
+		Optional<Booking> booking = bookingdao.findById(bookingId);
+		if(!(booking.isPresent())) {
+			throw new BookingNotFoundException("Booking id: " + bookingId + "not found");
+		}
+	return booking.get();
 	}
 	}
 

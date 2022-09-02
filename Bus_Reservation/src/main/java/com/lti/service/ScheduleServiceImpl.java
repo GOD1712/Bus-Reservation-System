@@ -52,13 +52,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 	@Override
 	public String removeScheduledBus(int busid) throws RecordNotFoundException  {
 		// TODO Auto-generated method stub
-		Optional<Schedule> scheduleFlight = scheduledao.findById(busid);
-		if (!scheduleFlight.isPresent())
-			throw new RecordNotFoundException("Enter a valid Flight Id");
+		Optional<Schedule> scheduleBus = scheduledao.findById(busid);
+		if (!scheduleBus.isPresent())
+			throw new RecordNotFoundException("Enter a valid bus Id");
 		else {
 			scheduledao.deleteById(busid);
 		}
-		return "Scheduled flight with Id" + busid +"is not found";
+		return "Scheduled bus with Id" + busid +"is not found";
 	}
 
 	@Override

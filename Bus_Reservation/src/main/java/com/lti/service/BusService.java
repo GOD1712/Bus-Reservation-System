@@ -13,6 +13,5 @@ public interface BusService {
 	public Bus addBus(Bus bus);
 	public Bus modifyBus(String busPlateNo, Bus bus) throws BusNotFoundException;
 	public Bus deleteBus(String busPlateNo) throws BusNotFoundException;
-	public Bus alreadyBooked(String[] alreadyBookedSeats);
-	public ResponseEntity<?> findBookingById(int bookingId);
+	public Bus findBusById(int bookingId) throws BusNotFoundException;
 }

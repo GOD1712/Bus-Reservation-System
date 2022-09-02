@@ -64,7 +64,7 @@ public class ScheduleController {
 	public ResponseEntity<Schedule> modifyScheduleBus(@ModelAttribute Schedule scheduleBus) {
 		Schedule modifyBus = scheduleService.modifyScheduledBus(scheduleBus);
 		if (modifyBus == null) {
-			return new ResponseEntity("Flight not modified", HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity("Bus not modified", HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
 			return new ResponseEntity<Schedule>(modifyBus, HttpStatus.OK);
 		}
@@ -76,8 +76,8 @@ public class ScheduleController {
 	 */
 	
 	@DeleteMapping("/delete")
-	public String deleteSF(@RequestParam Integer flightId) throws RecordNotFoundException {
-		return scheduleService.removeScheduledBus(flightId);
+	public String deleteSF(@RequestParam Integer busId) throws RecordNotFoundException {
+		return scheduleService.removeScheduledBus(busId);
 	}
 	
 	/*

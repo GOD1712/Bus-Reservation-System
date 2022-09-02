@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.lti.entity.Booking;
 import com.lti.entity.Bus;
+import com.lti.exception.BookingNotFoundException;
 import com.lti.exception.BusNotFoundException;
 
 public interface BookingService {
@@ -17,7 +18,7 @@ public interface BookingService {
 
 	public String deleteBooking(int bookingId);
 
-	public ResponseEntity<?> findBookingById(int bookingId);
+	public Booking findBookingById(int bookingId) throws BookingNotFoundException;
 	
 	
 	

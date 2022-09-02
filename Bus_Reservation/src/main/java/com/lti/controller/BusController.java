@@ -50,6 +50,6 @@ public class BusController {
 	
 	@GetMapping("/busPlateNumber")
 	public Bus  findBusByBusPlateNumber(@RequestBody String busPlateNo) throws BusNotFoundException {
-		return busService.deleteBus(busPlateNo);
+		return busService.findBusByBusPlateNumber(busPlateNo);
 	}
 }

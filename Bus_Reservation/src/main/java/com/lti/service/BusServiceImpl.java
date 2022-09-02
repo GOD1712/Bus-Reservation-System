@@ -1,6 +1,7 @@
 package com.lti.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,16 +57,14 @@ public class BusServiceImpl implements BusService{
 		return null;
 	}
 
-	@Override
-	public Bus alreadyBooked(String[] alreadyBookedSeats) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public ResponseEntity<?> findBookingById(int bookingId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Bus findBusById(int busId) throws BusNotFoundException {
+		Optional<Bus> bus = busDao.findById(busId);
+		if(!bus.isPresent()) {
+			throw new BusNotFoundException("Bus Id " + busId + "");
+		}
+	return bus.get();
+}
 	
 }
